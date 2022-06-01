@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+  
+    <script type="text/javascript">
+        
+            var style = document.createElement("style");
+            style.innerHTML = `
+                    *{
+                    box-sizing: border-box;
+                    padding: 0;
+                    margin: 0;
+                }
+                body{
+                    height: 100%;
+                    width: 100%;
+                }
+                .popup{
+                    width: 100%;
+                    z-index: 1;
+                    padding: 20px 200px;
+                    display: flex;
+                    bottom:0px;
+                    position:fixed;
+                }
+                .span{
+                    font-weight: bold;
+                }
+                .btn_uye{
+                    background-color: rgb(55, 121, 35);
+                    color:white;
+                    padding:10px;
+                    border-radius: 5px;
+                    border:0;
+                    margin-right: 10px;
+                    cursor:pointer;
+                }
+                .btn_uye:hover{
+                    background-color:rgb(82, 178, 49);
+                }
+                .btn_kapat{
+                    background-color: white;
+                    color:black;
+                    padding:10px 15px;
+                    border-radius: 5px;
+                    border:1px solid black;
+                    cursor:pointer;
+                }
+                .popup_yazi{
+                    width: 80%;
+                    padding: 0px 5px;
+                }
+                .popup_buttons{
+                    width: 20%;
+                    display: flex;
+                    align-items: flex-end;
+                    padding: 15px 5px;
+                }
+                @media only screen and (max-width: 768px) {
+                    .popup{
+                        padding: 20px 100px;
+                        
+                    }
+                    .btn_uye{
+                        font-size: 11px;
+                        
+                    }
+                    .btn_kapat{
+                        font-size: 11px;
+                }
+                }
+
+                @media only screen and (max-width: 414px) {
+                    .popup{
+                        padding: 20px 20px;
+                        display: block;
+                    
+                    }
+                    .popup_yazi{
+                    width: 100%;
+                    font-size: 13px;
+                }
+                .popup_buttons{
+                    width: 100%;
+                }
+
+                .btn_uye{
+                    padding:12px 15px;
+                }
+                }
+            `;
+
+            document.head.append(style);
+            
+
+            var div = document.createElement("div");
+            div.setAttribute("class", "popup");
+            var div1 = document.createElement("div");
+            div1.setAttribute("class", "popup_yazi");
+            var div2 = document.createElement("div");
+            div2.setAttribute("class", "popup_buttons");
+            var h3 = document.createElement("h3");
+            h3.setAttribute("class", "popup_baslik");
+            var p = document.createElement("p");
+            p.setAttribute("class", "popup_paragraf");  
+            var span = document.createElement("span");
+            span.setAttribute("class", "span");  
+
+            var button = document.createElement("button");
+            button.setAttribute("class", "btn_uye");
+            button.id = "uye";
+            var button1 = document.createElement("button");
+            button1.setAttribute("class", "btn_kapat");
+
+            h3.innerText = "Başlık";
+            p.innerText = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, laudantium, voluptatem praesentium eligendi quam eveniet rem tenetur ab in quasi repellat amet nesciunt error vero facere dolore repudiandae minus itaque ";
+            span.innerText="ddasdasdadasdasd";
+
+            button.innerText = "Üye Bilgilerim";
+            button1.innerText="Kapat";
+    
+
+
+            div2.appendChild(button);
+            div2.appendChild(button1);
+            div1.appendChild(h3);
+            div1.appendChild(p);
+            p.appendChild(span);
+            div.appendChild(div1);
+            div.appendChild(div2);
+
+
+            document.body.appendChild(div);
+
+            
+            const link_yonlendir = () =>{
+                window.location.href = "https://www.pierrecardin.com.tr/account/";
+            }
+
+            button.addEventListener('click',link_yonlendir);
+
+            const popup_kapat = () =>{
+                div.style.display = "none";
+            }
+
+            button1.addEventListener('click',popup_kapat);
+
+    </script>
+</body>
+</html>
